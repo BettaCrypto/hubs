@@ -11,7 +11,10 @@
   right: 0;
   bottom: 0;
   top: 0;
-  background: theme.$loading-screen-background;
+
+  // background-color: theme.$loading-screen-background;
+  background-color: theme.$white;
+  background-image: url('../../assets/hexagon.svg');
 
   font-size: theme.$font-size-sm;
 
@@ -22,6 +25,7 @@
 
 :local(.center) {
   flex-grow: 0;
+  background: theme.$white;
 }
 
 :local(.logo) {
@@ -30,6 +34,7 @@
   transform: translateY(calc(-100% - 20px));
   max-width: 260px;
   max-height: 140px;
+  background: theme.$white;
 }
 
 :local(.bottom) {
@@ -37,4 +42,5 @@
   bottom: 10%;
   width: 100%;
   padding: 0 48px;
+  background: theme.$white;
 }

@@ -70,6 +70,8 @@ import { ReactComponent as VRIcon } from "./icons/VR.svg";
 import { ReactComponent as LeaveIcon } from "./icons/Leave.svg";
 import { ReactComponent as EnterIcon } from "./icons/Enter.svg";
 import { ReactComponent as InviteIcon } from "./icons/Invite.svg";
+import { ReactComponent as ShowIcon } from "./icons/Show.svg";
+import { ReactComponent as HideIcon } from "./icons/Hide.svg";
 import { PeopleSidebarContainer, userFromPresence } from "./room/PeopleSidebarContainer";
 import { ObjectListProvider } from "./room/useObjectList";
 import { ObjectsSidebarContainer } from "./room/ObjectsSidebarContainer";
@@ -94,6 +96,7 @@ import { TweetModalContainer } from "./room/TweetModalContainer";
 import { TipContainer, FullscreenTip } from "./room/TipContainer";
 import { SpectatingLabel } from "./room/SpectatingLabel";
 import { SignInMessages } from "./auth/SignInModal";
+import { ChatInput, EmojiPickerPopoverButton, MessageAttachmentButton, SpawnMessageButton } from "./room/ChatSidebar";
 
 const avatarEditorDebug = qsTruthy("avatarEditorDebug");
 
@@ -197,7 +200,9 @@ class UIRoot extends Component {
     objectInfo: null,
     objectSrc: "",
     sidebarId: null,
-    presenceCount: 0
+    presenceCount: 0,
+
+    hideMenu: false
   };
 
   constructor(props) {
@@ -1015,6 +1020,7 @@ class UIRoot extends Component {
 
     if (this.props.showInterstitialPrompt) return this.renderInterstitialPrompt();
 
+    const hideMenu = this.state.hideMenu;
     const entered = this.state.entered;
     const watching = this.state.watching;
     const enteredOrWatching = entered || watching;
@@ -1526,15 +1532,18 @@ class UIRoot extends Component {
                   )
                 }
                 modal={this.state.dialog}
+                toolbarCenterHide={this.state.hideMenu}
                 toolbarLeft={
-                  <InvitePopoverContainer
-                    hub={this.props.hub}
-                    hubChannel={this.props.hubChannel}
-                    scene={this.props.scene}
-                  />
+                  <></>
                 }
                 toolbarCenter={
                   <>
+                    <InvitePopoverContainer
+                      hub={this.props.hub}
+                      hubChannel={this.props.hubChannel}
+                      preset="accent3"
+                      scene={this.props.scene}
+                    />
                     {watching && (
                       <>
                         <ToolbarButton
@@ -1582,10 +1591,7 @@ class UIRoot extends Component {
                           onClick={() => exit2DInterstitialAndEnterVR(true)}
                         />
                       )}
-                  </>
-                }
-                toolbarRight={
-                  <>
+                  
                     {entered &&
                       isMobileVR && (
                         <ToolbarButton
@@ -1609,6 +1615,26 @@ class UIRoot extends Component {
                       />
                     )}
                     <MoreMenuPopoverButton menu={moreMenu} />
+                  </>
+                }
+                toolbarRight={
+                  <>
+                  {!hideMenu && (
+                    <ToolbarButton
+                    icon={<ShowIcon />}
+                    label={<FormattedMessage id="toolbar.show-button" defaultMessage="Show" />}
+                    preset="accent2"
+                    onClick={() => this.setState({hideMenu: !this.state.hideMenu})}
+                  />
+                  )}
+                  {hideMenu && (
+                    <ToolbarButton
+                    icon={<HideIcon />}
+                    label={<FormattedMessage id="toolbar.hide-button" defaultMessage="Hide" />}
+                    preset="accent2"
+                    onClick={() => this.setState({hideMenu: !this.state.hideMenu})}
+                  />
+                  )}
                   </>
                 }
               />

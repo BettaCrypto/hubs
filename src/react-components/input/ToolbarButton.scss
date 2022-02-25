@@ -1,26 +1,30 @@
 @use '../styles/theme';
 
 :local(.toolbar-button) {
-  border: none;
-  background-color: transparent;
+  border: 1px solid theme.$white;
+  background-color: theme.$white;
   display: flex;
-  flex-direction: column;
+  // flex-direction: column;
   align-items: center;
-  width: 48px;
+  width: 110px;
+  height: fit-content;
+  border-radius: 25px;
 
   label {
     cursor: pointer;
     color: theme.$text1-color;
-    margin-top: 8px;
-    margin-bottom: 3px;
+    margin-top: 0;
+    margin-bottom: 0;
+    margin-left: 8px;
+    width: 40px;
   }
 }
 
 :local(.icon-container) {
   position: relative;
   border-radius: 9999px;
-  width: 48px;
-  height: 48px;
+  width: 40px; //48
+  height: 40px; //48
   display: flex;
   justify-content: center;
   align-items: center;
@@ -483,6 +487,7 @@
     }
 
     &:hover {
+      
       :local(.icon-container) {
         border-color: theme.$accent3-color-hover;
 

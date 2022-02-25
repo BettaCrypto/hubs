@@ -9,6 +9,7 @@ export function RoomLayout({
   viewportClassName,
   sidebar,
   sidebarClassName,
+  toolbarCenterHide,
   toolbarLeft,
   toolbarCenter,
   toolbarRight,
@@ -30,6 +31,7 @@ export function RoomLayout({
           left={toolbarLeft}
           center={toolbarCenter}
           right={toolbarRight}
+          hideCenter={toolbarCenterHide}
         />
       )}
       <div

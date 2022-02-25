@@ -4,7 +4,8 @@
   position: absolute;
   top: 8px;
   right: 8px;
-  display: flex;
+  // display: flex;
+  display: block;
   flex-direction: row;
   background-color: theme.$button-bg-color;
   border: 1px solid theme.$button-border-color;

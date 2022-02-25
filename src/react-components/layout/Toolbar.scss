@@ -1,11 +1,14 @@
 @use '../styles/theme';
 
 :local(.toolbar) {
-  height: 96px;
+  bottom: 0; //roleback hapus
+  position: absolute; //roleback hapus
+  width: 100%; //roleback hapus
+  height: 78px;
   display: flex;
   padding: 12px;
-  background-color: theme.$background1-color;
-  border-top: 1px solid theme.$border1-color;
+  background-color: transparent;
+  // border-top: 1px solid theme.$border1-color; //roleback uncomment
 
   @media (min-width: theme.$breakpoint-lg) {
     padding: 12px 24px;
@@ -15,8 +18,12 @@
 
 :local(.content) {
   display: flex;
-  flex: 1;
-  justify-content: space-around;
+  flex: 0;
+  // justify-content: space-arund;
+  justify-content: end;
+  transition: opacity 0.3s, visibility 0.3s linear;
+  visibility: visible;
+  opacity: 1;
 
   @media (min-width: theme.$breakpoint-lg) {
     flex: 0;

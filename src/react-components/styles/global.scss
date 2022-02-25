@@ -97,6 +97,10 @@
   --basic-color-pressed: #{theme.$white-pressed};
   --basic-border-color: var(--border1-color);
 
+  --btransparent-color: #{theme.$whitetransparent};
+  --btransparent-color-hover: #{theme.$whitetransparent-hover};
+  --btransparent-color-pressed: #{theme.$whitetransparent-pressed};
+
   --disabled-text-color: var(--text4-color);
   --disabled-bg-color:  var(--background3-color);
   --disabled-icon-color: var(--text3-color);
@@ -123,9 +127,9 @@
 
   --button-text-color: var(--text1-color);
   --button-border-color: var(--border1-color);
-  --button-bg-color: var(--basic-color);
-  --button-bg-color-hover: var(--basic-color-hover);
-  --button-bg-color-pressed: var(--basic-color-pressed);
+  --button-bg-color: var(--btransparent-color);
+  --button-bg-color-hover: var(--btransparent-color-hover);
+  --button-bg-color-pressed: var(--btransparent-color-pressed);
 
   --active-text-color: var(--text5-color);
   --active-color: var(--primary-color);

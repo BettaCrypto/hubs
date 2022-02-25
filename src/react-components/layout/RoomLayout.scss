@@ -52,7 +52,7 @@
 }
 
 :local(.toolbar) {
-  grid-row-start: toolbar;
+  //grid-row-start: toolbar; //rollback uncomment
   grid-column-end: -1;
   pointer-events: auto;
   z-index: 0;

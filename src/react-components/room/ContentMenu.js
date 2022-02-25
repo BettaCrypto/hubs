@@ -25,7 +25,7 @@ export function ObjectsMenuButton(props) {
     <ContentMenuButton {...props}>
       <ObjectsIcon />
       <span>
-        <FormattedMessage id="content-menu.objects-menu-button" defaultMessage="Objects" />
+        <FormattedMessage id="content-menu.objects-menu-button" defaultMessage="Object" />{/** default message = Object*/}
       </span>
     </ContentMenuButton>
   );
@@ -38,10 +38,10 @@ export function PeopleMenuButton(props) {
       <span>
         <FormattedMessage
           id="content-menu.people-menu-button"
-          defaultMessage="People ({presenceCount})"
+          defaultMessage="People ({presenceCount})" 
           values={{ presenceCount: props.presencecount }}
         />
-      </span>
+      </span> {/** default message = People*/}
     </ContentMenuButton>
   );
 }
